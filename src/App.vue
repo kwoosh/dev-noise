@@ -1,14 +1,6 @@
-<template>
-  <div id="app">
-    <header>
-
-    </header>
-
-    <main>
-      
-    </main>
-  </div>
-</template>
+<template lang="pug">
+  div( id="app" )
+</template> 
 
 <script>
 
@@ -19,6 +11,6 @@ export default {
 
 </script>
 
-<style>
+<style lang="stylus">
 
 </style>
