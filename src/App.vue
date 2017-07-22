@@ -12,7 +12,7 @@
       bon( text='Productivity' )
       bon( text='Relax' )
     
-    main
+    main.cont
       sounds
         
 </template> 
