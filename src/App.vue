@@ -1,31 +1,37 @@
 <template lang="pug">
   div( id="app" )
+
     mute
+
     header.cont
-      h1.main-head DevNoise
+      h2.main-head DevNoise
       p Improve focus and boost your productivity. 
         br
         | Mix different sounds and create your perfect environment.
       bon( text='Random' )
       bon( text='Productivity' )
       bon( text='Relax' )
+    
+    main
+      sounds
         
 </template> 
 
 <script>
+  import Sounds from './components/Sounds'
   import Bon from './components/Bon'
   import Icon from './components/Icon'
   import Mute from './components/Mute'
 
   export default {
     name: 'app',
-    components: { Bon, Icon, Mute }
+    components: { Bon, Icon, Mute, Sounds }
   }
 </script>
 
 <style lang="stylus">
 body {
-  background: #B1E0EC
+  background: #7C3982
   color: #fff
   font-family: Raleway
 }
