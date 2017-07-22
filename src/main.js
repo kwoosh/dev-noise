@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-
+import 'vue-awesome/icons'
 
 Vue.config.productionTip = false
 
