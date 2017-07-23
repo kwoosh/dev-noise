@@ -1,7 +1,7 @@
 <template lang="pug">
   div( id="app" )
-
-    mute
+    
+    mute 
 
     header.cont
       h2.main-head DevNoise
