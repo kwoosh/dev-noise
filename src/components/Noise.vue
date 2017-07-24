@@ -2,7 +2,7 @@
   div(  )
     icon( :name="icon" )
 
-    audio#noise( :src="file" type="audio/mp3" controls autoplay loop)
+    audio#noise( :src="file" type="audio/mp3" controls)
 
     input( type="range" @click="switchNoise" v-model="val")
     p {{ val }}
