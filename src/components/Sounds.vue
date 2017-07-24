@@ -1,63 +1,49 @@
-<template lang="pug">
-  div(  ) 
-    noise( 
-      v-for="(item, i) in items" 
-      :key="i" 
-      :file="item.src" 
-      :icon="item.icon"
-      :working="item.isNoise" )
+<template>
+  <ul>
+     <li v-for="(item, i) in music" :key="i" > 
+       <!-- {{ item.data.metadata.track }} - {{ item.data.metadata.title }}   -->
+      <audio ref="audio" :src="'file:// '+ item.data.file"></audio>
+      <button @click="playFile(item.filePath, i)">Play</button>
+      <button @click="stopFile(item.filePath, i)">Pause</button>
+    </li>
+  </ul>
 </template>
 <script>
-  import Noise from './Noise'
+import Noise from './Noise'
 
-  export default {
-    name: 'sounds',
-    components: { Noise },
-
-    data() {
-      return {
-        items: [
-          {
-            isNoise: false,
-            title: 'rain',
-            src: '../assets/sounds/rain.mp3',
-            icon: 'train'
-          },
-          {
-            isNoise: false,
-            title: 'fireplace',
-            src: '../assets/sounds/fireplace.mp3',
-            icon: 'train'
-          },
-          {
-            isNoise: false,
-            title: 'forest',
-            src: '../assets/sounds/forest.mp3',
-            icon: 'train'
-          },
-          {
-            isNoise: false,
-            title: 'thunder',
-            src: '../assets/sounds/thunder.mp3',
-            icon: 'train'
-          },
-          {
-            isNoise: false,
-            title: 'summer-night',
-            src: '../assets/sounds/summer-night.mp3',
-            icon: 'train'
-          },
-          {
-            isNoise: false,
-            title: 'whater-stream',
-            src: '../assets/sounds/whater-stream.mp3',
-            icon: 'train'
-          },
-
-        ]
+export default {
+  name: 'sounds',
+  methods: {
+    playFile(file, index) {
+      const music = this.$refs.audio[index];
+      if (music.paused) {
+        music.play();
+        console.log("play")
+      } else {
+        music.pause();
+        console.log(music.currentTime);
       }
+    },
+    stopFile(file, index) {
+      const music = this.$refs.audio[index];
+      music.pause();
+      music.currentTime = 0;
+    }
+  },
+  data() {
+    return {
+      music: [
+        {
+          filePath: './assets/sounds/fireplace.mp3',
+          data: {
+            title: 'fireplace',
+            file: './assets/sounds/fireplace.mp3'
+          }
+        }
+      ]
     }
   }
+}
 </script>
 <style lang="stylus" scoped>
 
