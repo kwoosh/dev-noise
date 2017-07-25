@@ -1,16 +1,15 @@
 <template lang="pug">
-
-  div(  ) 
-    noise( 
-      v-for="(item, i) in items" 
-      :key="i" 
-      :file="item.src" 
-      :icon="item.icon"
-      :working="item.isNoise" )
+  ul
+    noise(
+      v-for="(item, i) in items"
+      :key="i"
+      :file="item.src"
+      :icon="item.icon" )
 
 </template>
 <script>
 import Noise from './Noise'
+
 
 export default {
   name: 'sounds',
@@ -28,9 +27,6 @@ export default {
     }
   } 
 }
-
-
-
 
 </script>
 <style lang="stylus" scoped>

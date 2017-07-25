@@ -1,14 +1,18 @@
 <template lang="pug">
-  div(  )
-    icon( :name="icon" )
-
-    audio#noise( :src="file" type="audio/mp3" controls)
-
-    input( type="range" @click="switchNoise" v-model="val")
-    p {{ val }}
+  li
 </template>
 <script>
 import Icon from './Icon'
+
+function createAudio(file) {
+    const audio = new Audio(file)
+    
+    audio.loop = true
+    audio.autoplay = true
+    audio.controls = true
+
+    return audio
+}
 
 export default {
   name: 'noise',
@@ -19,11 +23,10 @@ export default {
       val: ''
     }
   },
-  methods: {
-    switchNoise(e) {
-      console.log(e.target.value)
-    }
+  mounted() {
+    document.querySelector('li').appendChild(createAudio(this.file))
   },
+  methods: {},
 }
 </script>
   
