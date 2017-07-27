@@ -10,7 +10,6 @@
 <script>
 import Noise from './Noise'
 
-
 export default {
   name: 'sounds',
   components: { Noise },

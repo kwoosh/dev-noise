@@ -1,5 +1,5 @@
 <template lang="pug">
-  div( @click="isMute = !isMute" )
+  div( @click="muteAll" )
     icon( v-if="isMute" name="volume_off" class="op" )
     icon( v-else name="volume_up" )
 </template>
@@ -13,7 +13,18 @@
         isMute: false
       }
     },
-    components: { Icon }
+    components: { Icon },
+    methods: {
+      muteAll() {
+        this.isMute = !this.isMute
+        const audios = document.querySelectorAll('audio')
+
+        audios.forEach(item => {
+          item.muted = this.isMute
+        })
+        console.log(audios)
+      }
+    }
   }
 </script>
 <style lang="stylus" scoped>

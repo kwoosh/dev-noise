@@ -1,37 +1,37 @@
 <template lang="pug">
+
   li
+    icon( :name="icon" )
+    audio( :src="file" controls )
+    range-input( @change.native="changeVolume")
+    
+
 </template>
 <script>
 import Icon from './Icon'
-
-function createAudio(file) {
-    const audio = new Audio(file)
-    
-    audio.loop = true
-    audio.autoplay = true
-    audio.controls = true
-
-    return audio
-}
+import RangeInput from './RangeInput'
 
 export default {
   name: 'noise',
   props: ['file', 'icon'],
-  components: { Icon },
+  components: { Icon, RangeInput },
   data() {
     return {
-      val: ''
+      volume: 50
     }
   },
-  mounted() {
-    document.querySelector('li').appendChild(createAudio(this.file))
-  },
-  methods: {},
+  methods: {
+    changeVolume(e) {
+      const audio = document.querySelector('audio')
+      audio.volume = (e.target.value / 100)
+      //console.log(e.target.value, audio)
+    }
+  }
 }
 </script>
   
 <style lang="stylus" scoped>
-  div {
+  li {
     display: flex
     flex-direction: column
     align-items: center
