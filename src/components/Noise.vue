@@ -1,9 +1,9 @@
 <template lang="pug">
 
-  li( @click="muteThis")
-    img( :src="'../../static/imgs/' + img" )
-    audio( :src="'../../static/sounds/' + file" controls )
-    range-input( @change.native="changeVolume")
+  li( :class="{ op: isMute }" )
+    img( :src="'../../static/imgs/' + img" @click="muteThis" )
+    audio( :src="'../../static/sounds/' + file" autoplay loop )
+    range-input( @input.native="changeVolume" v-if="!isMute")
     
 </template>
 <script>
@@ -11,25 +11,29 @@ import RangeInput from './RangeInput'
 
 export default {
   name: 'noise',
-  props: ['file', 'img'],
+  props: ['file', 'img', 'noise'],
   components: { RangeInput },
-  data() {
-    return {
-      volume: 50
-    }
-  },
   methods: {
     changeVolume(e) {
       const audio = document.querySelector('audio')
       audio.volume = (e.target.value / 100)
       //console.log(e.target.value, audio)
     },
-    muteThis() {
+    muteThis(e) {
+      this.isMute = !this.isMute
       
+      const audio = document.querySelector('audio')
+      audio.muted = this.isMute
     }
   },
   mounted() {
-    // todo default vulome no 50
+    const audio = document.querySelector('audio')
+    audio.volume = 0.2
+  },
+  data() {
+    return {
+      isMute: false
+    }
   }
 }
 </script>

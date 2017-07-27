@@ -14,13 +14,14 @@ export default {
   name: 'sounds',
   components: { Noise },
   methods: {
+    muteThis() {
 
+    }
   },
   data() {
     return {
       items: [
         {
-          isNoise: false,
           src: 'rain.mp3',
           img: 'rain.png'
         }
