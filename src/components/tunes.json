@@ -1,0 +1,26 @@
+[
+  {
+    "src": "rain.mp3",
+    "img": "rain.png"
+  },
+  {
+    "src": "forest.mp3",
+    "img": "forest.png"
+  },
+  {
+    "src": "fireplace.mp3",
+    "img": "fireplace.png"
+  },
+  {
+    "src": "summer-night.mp3",
+    "img": "summer-night.png"
+  },
+  {
+    "src": "thunder.mp3",
+    "img": "thunder.png"
+  },
+  {
+    "src": "water-stream.mp3",
+    "img": "water-stream.png"
+  }
+]

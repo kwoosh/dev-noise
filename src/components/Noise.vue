@@ -1,9 +1,17 @@
 <template lang="pug">
 
   li( :class="{ op: isMute }" )
-    img( :src="'../../static/imgs/' + img" @click="muteThis" )
-    audio( :src="'../../static/sounds/' + file" autoplay loop ref="ad")
-    range-input( @input.native="changeVolume" v-show="!isMute" )
+    img( 
+      :src="'../../static/imgs/' + img" 
+      @click="muteThis" )
+    audio( 
+      :src="'../../static/sounds/' + file" 
+      autoplay 
+      loop 
+      ref="ad")
+    range-input( 
+      @input.native="changeVolume" 
+      v-show="!isMute" )
     
 </template>
 <script>

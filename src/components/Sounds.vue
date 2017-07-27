@@ -9,6 +9,7 @@
 </template>
 <script>
 import Noise from './Noise'
+import tunes from './tunes'
 
 export default {
   name: 'sounds',
@@ -28,32 +29,7 @@ export default {
   },
   data() {
     return {
-      items: [
-        {
-          src: 'rain.mp3',
-          img: 'rain.png'
-        },
-        {
-          src: 'forest.mp3',
-          img: 'rain.png'
-        },
-        {
-          src: 'rain.mp3',
-          img: 'rain.png'
-        },
-        {
-          src: 'forest.mp3',
-          img: 'rain.png'
-        },
-        {
-          src: 'rain.mp3',
-          img: 'rain.png'
-        },
-        {
-          src: 'forest.mp3',
-          img: 'rain.png'
-        }
-      ]
+      items: tunes
     }
   } 
 }

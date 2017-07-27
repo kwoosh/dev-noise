@@ -4,29 +4,34 @@
     icon( v-else name="volume_up" )
 </template>
 <script>
-  import Icon from './Icon'
+import Icon from './Icon'
 
-  export default {
-    name: 'mute',
-    data() {
-      return {
-        isMute: false
-      }
-    },
-    components: { Icon },
-    methods: {
-      muteAll() {
-        this.isMute = !this.isMute
-        const audios = document.querySelectorAll('audio')
+export default {
+  name: 'mute',
+  data() {
+    return {
+      isMute: false,
+      mVol: {}
+    }
+  },
+  components: { Icon },
+  methods: {
+    muteAll() {
+      this.isMute = !this.isMute
+      const audios = document.querySelectorAll('audio')
 
+      if (this.isMute) {
         audios.forEach(item => {
-          item.muted = this.isMute
+          item.pause()
         })
-        
-        //console.log(audios)
+      } else {
+        audios.forEach(item => {
+          item.play()
+        })
       }
     }
   }
+}
 </script>
 <style lang="stylus" scoped>
   div {
