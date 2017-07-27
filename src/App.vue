@@ -25,7 +25,23 @@
 
   export default {
     name: 'app',
-    components: { Bon, Icon, Mute, Sounds }
+    components: { Bon, Icon, Mute, Sounds },
+    mounted() {
+      setInterval(() => {
+        document.body.style.backgroundColor = randColor()
+      }, 10000)
+    }
+  }
+
+  function randColor() {
+    let hash = '#'
+    const letters = '1234567890abcdef'
+    // todo reafctor this func later
+    for (var i = 0; i < 6; i++) {
+      hash += letters[Math.floor(Math.random() * 16)]
+    }
+
+    return hash
   }
 </script>
 
@@ -34,6 +50,7 @@ body {
   background: #7C3982
   color: #fff
   font-family: Raleway
+  transition: all 4s
 }
 
 .cont {
