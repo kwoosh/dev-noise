@@ -22,7 +22,8 @@
         audios.forEach(item => {
           item.muted = this.isMute
         })
-        console.log(audios)
+        
+        //console.log(audios)
       }
     }
   }
@@ -35,9 +36,5 @@
     outline: none
     cursor: pointer
     transform: scale(1.3)
-  }
-
-  .op {
-    opacity: 0.8
   }
 </style>

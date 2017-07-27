@@ -4,7 +4,7 @@
       v-for="(item, i) in items"
       :key="i"
       :file="item.src"
-      :icon="item.icon" )
+      :img="item.img" )
 
 </template>
 <script>
@@ -13,14 +13,16 @@ import Noise from './Noise'
 export default {
   name: 'sounds',
   components: { Noise },
+  methods: {
+
+  },
   data() {
     return {
       items: [
         {
           isNoise: false,
-          title: 'rain',
-          src: '../../static/sounds/rain.mp3',
-          icon: 'train'
+          src: 'rain.mp3',
+          img: 'rain.png'
         }
       ]
     }

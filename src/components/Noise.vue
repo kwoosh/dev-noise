@@ -1,20 +1,18 @@
 <template lang="pug">
 
-  li
-    icon( :name="icon" )
-    audio( :src="file" controls )
+  li( @click="muteThis")
+    img( :src="'../../static/imgs/' + img" )
+    audio( :src="'../../static/sounds/' + file" controls )
     range-input( @change.native="changeVolume")
     
-
 </template>
 <script>
-import Icon from './Icon'
 import RangeInput from './RangeInput'
 
 export default {
   name: 'noise',
-  props: ['file', 'icon'],
-  components: { Icon, RangeInput },
+  props: ['file', 'img'],
+  components: { RangeInput },
   data() {
     return {
       volume: 50
@@ -25,7 +23,13 @@ export default {
       const audio = document.querySelector('audio')
       audio.volume = (e.target.value / 100)
       //console.log(e.target.value, audio)
+    },
+    muteThis() {
+      
     }
+  },
+  mounted() {
+    // todo default vulome no 50
   }
 }
 </script>

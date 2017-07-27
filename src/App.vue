@@ -46,5 +46,9 @@ body {
   margin: 60px 0
 }
 
+.op {
+  opacity: 0.8
+}
+
 
 </style>
