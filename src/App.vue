@@ -37,7 +37,7 @@ body {
 }
 
 .cont {
-  width: 700px
+  width: 800px
   margin: 0 auto
   text-align: center
 }
@@ -47,7 +47,7 @@ body {
 }
 
 .op {
-  opacity: 0.8
+  opacity: 0.7
 }
 
 
