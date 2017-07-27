@@ -22,26 +22,16 @@
   import Bon from './components/Bon'
   import Icon from './components/Icon'
   import Mute from './components/Mute'
+  import helpers from './components/helpers'
 
   export default {
     name: 'app',
     components: { Bon, Icon, Mute, Sounds },
     mounted() {
       setInterval(() => {
-        document.body.style.backgroundColor = randColor()
+        document.body.style.backgroundColor = helpers.randHash()
       }, 10000)
     }
-  }
-
-  function randColor() {
-    let hash = '#'
-    const letters = '1234567890abcdef'
-    // todo reafctor this func later
-    for (var i = 0; i < 6; i++) {
-      hash += letters[Math.floor(Math.random() * 16)]
-    }
-
-    return hash
   }
 </script>
 
